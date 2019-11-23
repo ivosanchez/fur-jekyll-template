@@ -18,7 +18,7 @@
 }
 
 .hero {
-	color: #ffffff;
+	color: #e7f7f6 ;
 	text-align: center;
 	position: relative;
 	z-index: 99;
@@ -26,11 +26,14 @@
 		font-size: 3.2rem;
 		line-height: 1.5;
 		font-weight: bold;
+		font-family: 'Optician Sans' ;
 	}
 
 	@media (min-width: 500px) {
 		h2 {
 			font-size: 3.5rem;
+			font-family: 'Optician Sans' ;
+
 		}
 	}
 
@@ -82,7 +85,7 @@ section {
 }
 
 section + section {
-	padding-top: 0;
+	padding-top: 0 ; 
 }
 
 .subtext {

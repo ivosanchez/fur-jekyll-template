@@ -1,6 +1,6 @@
 .styles {
 	width: 100%;
-	background: #eee;
+	background: rgba(42, 140, 151, 0.178);
 	position: relative;
 	padding: 20px;
 	box-sizing: border-box;
@@ -17,7 +17,7 @@
 		> div {
 			width: 20px;
 			height: 20px;
-			border: 1px solid #000;
+			border: 1px solid rgb(8, 47, 54);
 			display: inline-block;
 			margin: 0 5px 0 0;
 			border-radius: 20px;
@@ -31,7 +31,7 @@
 
 	i {
 		font-size: 14rem;
-		color: #fff;
+		color: rgba(203, 12, 133, 0.961);
 	}
 }
 
@@ -47,17 +47,20 @@
 	}
 
 	.product-details {
-		flex: 2 1 500px;
+		// flex: 2 1 500px;
+		flex: 2 1 100px;
 		text-align: left;
-		margin-left: 40px;
+		// margin-left: 40px;
+		margin-left: 1rem;
+		font-family: 'Roboto Condensed';
 
 		h4 {
-			color: $brand-color;
+			color: rgba(80, 219, 16, 0.94) ;
 		}
 	}
 
 	form {
-		border: 1px solid #444;
+		border: 1px solid rgba(11, 90, 174, 0.968);
 		padding: 20px;
 		border-radius: 2px;
 
@@ -88,6 +91,7 @@
 	h4 {
 		margin: 10px 0 0 0;
 		padding-right: 100px;
+		
 	}
 
 	p {
@@ -97,11 +101,12 @@
 
 	.product-description p {
 		font-size: 1.1rem;
+
 	}
 
 	.snipcart-add-item {
 		-webkit-appearance: none;
-		color: #222;
+		color: rgba(31, 112, 126, 0.947);
 		text-decoration: none;
 		border: 0;
 		background: none;
@@ -114,8 +119,8 @@
 		margin-top: 10px;
 
 		&:hover {
-			background: #f5f5f5;
-			color: #000;
+			background: #09b4cb9c;
+			color: rgb(20, 74, 87);
 		}
 	}
 }
