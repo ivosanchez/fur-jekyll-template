@@ -1,8 +1,14 @@
 ---
 layout: default
 ---
+<style>
+	h1, h2, h3, a, table {
+	style="filter: invert(1) grayscale(1) contrast(9)"
+	}
+</style>
 <div class="content">
-	<section class="page">
+	<section class="page"
+	>
 		<div class="container">
 			
 		 <div class="product-container" 
@@ -21,76 +27,82 @@ layout: default
 						<h4>${{ page.price }}</h4>
 					</div>
 
-				 
-					<div style="outline: 2px dashed green">
-						{% for style in page.styles %}
-						<div data-item-id="{{ forloop.index }}" 
-					{%- comment -%} {% unless forloop.first %} style="display: none" {% endunless %} {%- endcomment -%}
-					>
-						
-							{{ style }}	
-						
-						{% endfor %}	
-						</div>
-							{% unless forloop.first %} {% endunless %}
-
-						<div>
-						{% for sizes in page.sizes %}
-							{{ sizes }}  
-						{% endfor %}
-						</div>
-	
-					</div>
-
-
-					<table id="table_id" class="display" border="1">
+					<table id="countit" border="1">
 						<thead>		
 							<tr>
 								<th></th>
 								{% for style in page.styles %}
 								<th data-item-id="{{ forloop.index }}"
-								style="background:{{style.color}}">
+								style="background:{{style.color}}
+								mix-blend-mode: difference;
+								">
 								   {{ style.name }}
 								</th>
 								{% endfor %}
+								<th>todos</th>
+								<th>&euro; por Ud.</th>
 
-								
 							</tr>
 						</thead>
 
 						<tbody>
-							{%- comment -%} {% unless forloop.first %} 
-							{% endunless %} {%- endcomment -%}
-								
-							{% for sizes in page.sizes %}
-								<tr>
-									<td>{{sizes}}</td>
-								</tr>			
+						<tr>
+						{% for sizes in page.sizes %}
+							<th style="font-weight:600">{{sizes}}</th>	
+							{% for styles in page.styles %}
+						  	<th class="count-me">
+							  <input 
+							  type="number" 
+							  name="someid"
+							  min="0" max="1000"
+							  style="font-weight:600; 
+							  		background:{{styles.color}};
+									  color: white;
+									   
+									  "
+
+							  /> 
+							</th>
 							{% endfor %}
+							<th>   </th>
+							<th>
+							  <input 
+								type="text" 
+								name="price" 
+								id="price_per_ticket" 
+								class="calculator-input" 
+								onkeypress="return 
+								event.charCode >= 48 && event.charCode <= 57"
+							  >
+							</th>
 
+						</tr>
+						{% endfor %}
+					</tbody>
 
-						</tbody>
-  						
-						<tfoot>
-						  
+					<tfoot>
 						<tr>
 							<th style="font-weight:600"></th>
 								{% for style in page.styles %}
 						  		  <th style="font-weight:600">totals</th>
 								{% endfor %}
+							<th>totalx</th>
 						</tr>
-
 						</tfoot>
 						
 					</table>
 
 				</br></br></br></br></br></br>
-				<div 
-				style="outline:2px solid fuchsia" 
-				class="button"
-				>
-				{% include snipcart-button.html product=page %}
-				</div>	
+				
+				
+				<button class="snipcart-add-item" id="my-button"
+				data-item-id="1"
+				data-item-url="/"
+				data-item-name="Item"
+				data-item-price="20.00"
+				data-item-quantity="10">
+				  Buy now
+			   </button>
 
 					
 				</div>
@@ -100,15 +112,18 @@ layout: default
 	</section>
 </div>
 
+<script language="javascript" type="text/javascript">
+	var tds = document.getElementById('countit').getElementsByTagName('td');
+	var sum = 0;
+	for(var i = 0; i < tds.length; i ++) {
+		if(tds[i].className == 'count-me') {
+			sum += isNaN(tds[i].innerHTML) ? 0 : parseInt(tds[i].innerHTML);
+		}
+	}
+	document.getElementById('countit').innerHTML += '<tr><td>' + sum + '</td><td>total</td></tr>';
+</script>
+
+
+
 <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" data-api-key="{{ site.api_key }}" id="snipcart"></script>
 <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet" type="text/css" />
-
-
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-
-
-<script>
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );</script>
