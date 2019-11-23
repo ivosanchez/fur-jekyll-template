@@ -60,9 +60,9 @@ exclude:
 - Gemfile.lock
 - README.md
 - LICENCE
-garment_types:
-- hat
-- top
+product_types:
+- presbicia
+- sol
 social_icons:
 - Email
 - Facebook

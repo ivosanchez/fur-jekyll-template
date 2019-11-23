@@ -8,14 +8,14 @@ layout: default
 		<div class="container">
 			
 		 <div class="product-container" 
-		 style="outline: 2px solid black"
+		 style="outline: 2px solid rgb(13, 0, 255)"
 		>
 			{% include product-styles.html product=page %}
 
 				<div 
 				class="product-details" 
 				id="add" 
-				style="outline:3px solid red"
+				style="outline:3px solid red; "
 				>
 
 					<!-- <h2>{{ page.name }}</h2> -->
@@ -38,9 +38,8 @@ layout: default
 								   {{ style.name }}
 								</th>
 								{% endfor %}
-								<th>todos</th>
-								<th>&euro; por Ud.</th>
-
+								<!-- <th>todos</th> -->
+								<!-- <th>&euro; por Ud.</th> -->
 							</tr>
 						</thead>
 
@@ -57,24 +56,22 @@ layout: default
 							  style="font-weight:600; 
 							  		background:{{styles.color}};
 									  color: white;
-									   
 									  "
-
 							  /> 
 							</th>
 							{% endfor %}
-							<th>   </th>
+
+							<th></th>
 							<th>
-							  <input 
+							  <!-- <input 
 								type="text" 
 								name="price" 
 								id="price_per_ticket" 
 								class="calculator-input" 
 								onkeypress="return 
 								event.charCode >= 48 && event.charCode <= 57"
-							  >
+							  > -->
 							</th>
-
 						</tr>
 						{% endfor %}
 					</tbody>
@@ -83,15 +80,15 @@ layout: default
 						<tr>
 							<th style="font-weight:600"></th>
 								{% for style in page.styles %}
-						  		  <th style="font-weight:600">totals</th>
+						  		  <!-- <th style="font-weight:600">totals</th> -->
 								{% endfor %}
-							<th>totalx</th>
+							<!-- <th>totalx</th> -->
 						</tr>
-						</tfoot>
+					</tfoot>
 						
-					</table>
+				</table>
 
-				</br></br></br></br></br></br>
+				</br>
 				
 				
 				<button class="snipcart-add-item" id="my-button"

@@ -6,7 +6,7 @@ description_markdown: |-
 
 
   Slim Fit, 5oz 100% Cotton T-Shirt.
-garment_type: 
+product_type: 
 price: '9.00'
 sku: hog
 stock: 10
