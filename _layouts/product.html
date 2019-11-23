@@ -4,19 +4,111 @@ layout: default
 <div class="content">
 	<section class="page">
 		<div class="container">
-			<div class="product-container">
-				{% include product-styles.html product=page %}
-				<div class="product-details" id="add">
-					<h3>{{ page.name }}</h3>
+			
+		 <div class="product-container" 
+			style="background:rgba(0, 247, 255, 0.13)"
+		>
+			{% include product-styles.html product=page %}
+
+				<div class="product-details" id="add" style="outline:3px dotted red">
+
+					<h2>{{ page.name }}</h2>
+
 					{{ page.description_markdown | markdownify }}
 
-					<h4>${{ page.price }}</h4>
-					<div class="button">{% include snipcart-button.html product=page %}</div>
+				 
+					<div style="outline:2px solid dodgerblue ">
+						<h4>${{ page.price }}</h4>
+					</div>
+
+				 
+					<div style="outline: 2px dashed green">
+						{% for style in page.styles %}
+						<div data-item-id="{{ forloop.index }}" 
+					{%- comment -%} {% unless forloop.first %} style="display: none" {% endunless %} {%- endcomment -%}
+					>
+						
+							{{ style }}	
+						
+						{% endfor %}	
+						</div>
+							{% unless forloop.first %} {% endunless %}
+
+						<div>
+						{% for sizes in page.sizes %}
+							{{ sizes }}  
+						{% endfor %}
+						</div>
+	
+					</div>
+
+
+					<table id="table_id" class="display" border="1">
+						<thead>		
+							<tr>
+								<th></th>
+								{% for style in page.styles %}
+								<th data-item-id="{{ forloop.index }}"
+								style="background:{{style.color}}">
+								   {{ style.name }}
+								</th>
+								{% endfor %}
+
+								
+							</tr>
+						</thead>
+
+						<tbody>
+							{%- comment -%} {% unless forloop.first %} 
+							{% endunless %} {%- endcomment -%}
+								
+							{% for sizes in page.sizes %}
+								<tr>
+									<td>{{sizes}}</td>
+								</tr>			
+							{% endfor %}
+
+
+						</tbody>
+  						
+						<tfoot>
+						  
+						<tr>
+							<th style="font-weight:600"></th>
+								{% for style in page.styles %}
+						  		  <th style="font-weight:600">totals</th>
+								{% endfor %}
+						</tr>
+
+						</tfoot>
+						
+					</table>
+
+				</br></br></br></br></br></br>
+				<div 
+				style="outline:2px solid fuchsia" 
+				class="button"
+				>
+				{% include snipcart-button.html product=page %}
+				</div>	
+
+					
 				</div>
 			</div>
 		</div>
+	</div>
 	</section>
 </div>
 
 <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" data-api-key="{{ site.api_key }}" id="snipcart"></script>
 <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet" type="text/css" />
+
+
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );</script>

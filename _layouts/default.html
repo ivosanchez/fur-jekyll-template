@@ -23,14 +23,22 @@
 		{% endif %}
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-		{% if site.snipcart_key %}
-			<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="{{ site.snipcart_key }}"></script>
-		{% endif %}
+
+			{% if site.snipcart_key %}
+				<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="{{ site.snipcart_key }}">
+		</script>{% endif %}
+
+		<!-- ivosan tables  -->
+		 <style>"https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"</style> 
+
+
 	</head>
 	<body>
 		<header>
 			<div class="container">
-				<div class="company-name"><a href="{{ site.baseurl }}/">{% include logo.html %} <span>{{ site.title }}</span></a></div>
+				<div class="company-name">
+					<a href="{{ site.baseurl }}/">{% include logo.html %} <span>{{ site.title }}</span></a>
+				</div>
 				{% include navigation.html %}
 			</div>
 
@@ -48,7 +56,10 @@
 				</div>
 			</section>
 		</header>
+
 		{{ content }}
+
+		
 		<footer>
 			<div class="container">
 				<ul class="footer-columns">

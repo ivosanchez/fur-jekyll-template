@@ -1,5 +1,9 @@
 {
     "workbench.colorCustomizations": {
         "tab.unfocusedActiveBorder": "#fff0"
-    }
+    },
+    "favorites.resources": [
+        "_layouts/product.html",
+        "_layouts/default.html"
+    ]
 }
